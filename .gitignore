@@ -1,0 +1,7 @@
+/client_secrets.json
+/credentials.json
+/settings.yaml
+/userclone.py
+
+/output/*
+!/output/.gitkeep
