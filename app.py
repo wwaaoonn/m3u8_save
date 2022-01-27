@@ -46,7 +46,7 @@ def main():
     DATE_FORMAT = "%Y%m%d%H%M"
     ARCHIVE_PATH = "https://nhkradioakr2-i.akamaihd.net/hls/live/511929/1-r2/1-r2-01.m3u8"  # 第2放送
     AUDIO_TIME = 30
-    PROGRAM_NAME = "録音テスト"
+    PROGRAM_NAME = "録音"
     MIMETYPE_TO_OUTPUT = {"mimetype": "audio/mpeg", "extension": "mp3"}
     GDRIVE_FOLDER_ID = "18xRd_70O53dt2FYO24LUahgVkcW62dCA"
     today_string = get_today_string(DATE_FORMAT)
