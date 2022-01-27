@@ -23,7 +23,7 @@ def save_to_gdrive(file_name, mimetype, gdrive_folder_id):
             "id": gdrive_folder_id
         }]
     })
-    file_name_with_parents = f"output/{file_name}"
+    file_name_with_parents = f"tmp/{file_name}"
     targetFile.SetContentFile(file_name_with_parents)
     targetFile.Upload()
 
@@ -35,7 +35,7 @@ def get_today_string(date_format):
 
 
 def fetch_audio_file(archive_path, file_name, time):
-    file_name_with_parents = f"output/{file_name}"
+    file_name_with_parents = f"tmp/{file_name}"
     stream = ffmpeg.input(archive_path)
     stream = ffmpeg.output(stream, file_name_with_parents,
                            format='mp3', ss=0, t=time)
