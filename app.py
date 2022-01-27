@@ -1,3 +1,6 @@
+from wsgiref import headers
+from django.http import cookie
+from fastapi import Cookie
 import ffmpeg
 import datetime
 
@@ -35,8 +38,11 @@ def get_today_string(date_format):
 
 
 def fetch_audio_file(archive_path, file_name, time):
+    user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36"
+    cookie = "_alid_=KAAb6sPL87urMGlKhR32ew=="
     file_name_with_parents = f"tmp/{file_name}"
-    stream = ffmpeg.input(archive_path)
+    stream = ffmpeg.input(
+        archive_path, headers=f"User-Agent: {user_agent}\r\n, Cookie: {cookie}\r\n", copytb="1")
     stream = ffmpeg.output(stream, file_name_with_parents,
                            format='mp3', ss=0, t=time)
     ffmpeg.run(stream)
